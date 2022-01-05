@@ -67,6 +67,7 @@ public class LinkedList {
 		return popData;
 
 	}
+
 	public void popLast() {
 		if (head == null) {
 			System.out.println("Stack is empty");
@@ -83,5 +84,21 @@ public class LinkedList {
 		temp.next = null;
 		System.out.println("Delete last node::");
 
+	}
+	public int search(int val) {
+		if (head == null) {
+			System.out.println("List is Empty");
+			return -1;
+			}
+			int index = 1;
+			Node newNode = head;
+			while (newNode != null) {
+			if (newNode.data == val) {
+			break;
+			}
+			index++;
+			newNode = newNode.next;
+			}
+			return index;
 }
 }
