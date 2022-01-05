@@ -85,20 +85,43 @@ public class LinkedList {
 		System.out.println("Delete last node::");
 
 	}
+
 	public int search(int val) {
 		if (head == null) {
 			System.out.println("List is Empty");
 			return -1;
-			}
-			int index = 1;
-			Node newNode = head;
-			while (newNode != null) {
+		}
+		int index = 1;
+		Node newNode = head;
+		while (newNode != null) {
 			if (newNode.data == val) {
-			break;
+				break;
 			}
 			index++;
 			newNode = newNode.next;
+		}
+		return index;
+	}
+
+	public void insertelement(int position, int data) {
+
+		Node node = new Node(data);
+
+		if (position == 1) {
+			node.next = head;
+			head = node;
+		} else {
+			Node previous = head;
+			int count = 1; // position - 1
+
+			while (count < position - 1) {
+				previous = previous.next;
+				count++;
 			}
-			return index;
-}
+
+			Node temp = previous.next;
+			previous.next = node;
+			node.next = temp;
+		}
+	}
 }
