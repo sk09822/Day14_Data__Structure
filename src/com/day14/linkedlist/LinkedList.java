@@ -124,17 +124,38 @@ public class LinkedList {
 			node.next = temp;
 		}
 	}
-	  public void deleteANode(int value) {
-	        if (this.head == null) {
-	            System.out.println("List is Empty");
-	            return;
-	        }
-	        Node tempNode = head;
-	        while (tempNode.next.data != value) {
-	            tempNode = tempNode.next;
-	        }
-	        Node previousNode = tempNode;
-	        Node nextNode = tempNode.next.next;
-	        previousNode.next = nextNode;
-	    }
+
+	public void deleteANode(int value) {
+		if (this.head == null) {
+			System.out.println("List is Empty");
+			return;
+		}
+		Node tempNode = head;
+		while (tempNode.next.data != value) {
+			tempNode = tempNode.next;
+		}
+		Node previousNode = tempNode;
+		Node nextNode = tempNode.next.next;
+		previousNode.next = nextNode;
 	}
+
+	public void sort() {
+		Node initialStart = head, index = null;
+		if (head == null) {
+			System.out.println("List is empty");
+			return;
+		}
+		while (initialStart != null) {
+			index = initialStart.next;
+			while (index != null) {
+				if (initialStart.data > index.data) {
+					int temp = initialStart.data;
+					initialStart.data = index.data;
+					index.data = temp;
+				}
+				index = index.next;
+			}
+			initialStart = initialStart.next;
+		}
+	}
+}
