@@ -55,6 +55,7 @@ public class LinkedList {
 		prevNode.next = newNode;
 
 	}
+
 	public int pop() {
 		int popData = 0;
 		if (head == null) {
@@ -62,9 +63,25 @@ public class LinkedList {
 		}
 		popData = head.data;
 		head = head.next;
-		
-		return popData;
-		
-	}
 
+		return popData;
+
+	}
+	public void popLast() {
+		if (head == null) {
+			System.out.println("Stack is empty");
+		}
+		if (head == null) {
+			System.out.println(head.data);
+			head = null;
+		}
+		Node temp = head;
+		while (temp.next.next != null) {
+			temp = temp.next;
+
+		}
+		temp.next = null;
+		System.out.println("Delete last node::");
+
+}
 }
